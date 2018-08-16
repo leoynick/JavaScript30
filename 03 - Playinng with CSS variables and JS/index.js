@@ -1,7 +1,13 @@
 const inputs = document.querySelectorAll(".controls input");
 
 function handleUpdate() {
-  console.log(this.value);
+  const {
+    dataset: { sizing },
+    name,
+    value
+  } = this;
+
+  document.documentElement.style.setProperty(`--${name}`, value + sizing);
 }
 
 inputs.forEach(input => input.addEventListener("change", handleUpdate));
